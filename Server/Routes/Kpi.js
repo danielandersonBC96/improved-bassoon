@@ -1,17 +1,15 @@
 import express from "express";
+import kPI from "../Models/KPI.js";
 
-const routes = express.Router();
+const router = express.Router();
 
-routes.get ( "/Kpis", async (req,res) => {
+router.get("/kpis", async (req, res) => {
+  try {
+    const kpis = await kPI.find();
+    res.status(200).json(kpis);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+});
 
-    try{
-        const Kpis = await KPI.find()
-        
-    }
-    catch(error) {
-        res.status(404).json({message: error.message})
-
-    }
-})
-
-export default routes;
+export default router;

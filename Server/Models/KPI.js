@@ -1,28 +1,30 @@
 import mongoose  from "mongoose";
 import {loadType} from "mongoose-currency"
 
-const Pages = mongoose.Pages;
+
+const Schema = mongoose.Schema
+
 loadType(mongoose);
 
-const dayPages = new Pages(
+const dayPages = new Schema(
     {
-        data :String,
-        revenue:{
-            type: mongoose.Types.Currency,
-            currancy:"USD",
-            get:(v) => v / 100
-        },
-        expenses:{
-            type: mongoose.Types.Currency,
-            currancy:"USD",
-            get:(v) => v / 100
-        },
+      date: String,
+      revenue: {
+        type: mongoose.Types.Currency,
+        currency: "USD",
+        get: (v) => v / 100,
+      },
+      expenses: {
+        type: mongoose.Types.Currency,
+        currency: "USD",
+        get: (v) => v / 100,
+      },
     },
-   
-    {toJSON: {getters : true }}
-)
+    { toJSON: { getters: true } }
+  );
 
-const monthPages =  new Pages(
+
+const monthPages =  new Schema(
     {
         month :String,
         revenue:{
@@ -53,7 +55,7 @@ const monthPages =  new Pages(
 )
 
 
-const KPIPages = new Pages(
+const KPISchema= new Schema(
     {
         totalProfit: {
             type: mongoose.Types.Currency,
@@ -86,6 +88,6 @@ const KPIPages = new Pages(
 
 );
 
-const kPI = mongoose.model("KPI", KPIPages)
+const kPI = mongoose.model("KPI", KPISchema)
 
 export default kPI 
