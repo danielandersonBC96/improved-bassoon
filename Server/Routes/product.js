@@ -1,9 +1,9 @@
 import express from "express";
-import Products from '../Models/Product'
+import Products from '../Models/Product.js'
 
-const router = express.Router();
+const routerProduct = express.Router();
 
-router.get("/products", async (req, res) => {
+routerProduct.get("/products", async (req, res) => {
   try {
     const  product  = await Products.find();
     res.status(200).json( product);
@@ -12,4 +12,4 @@ router.get("/products", async (req, res) => {
   }
 });
 
-export default router;
+export default routerProduct;

@@ -5,11 +5,12 @@ import helmet  from 'helmet';
 import mongoose from 'mongoose';
 import morgan from "morgan";
 import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-import kPI, * as KPI from './Models/KPI.js'
+import kPI, * as  KPI from './Models/KPI.js'
 import { kpis, products} from './Data/Data.js';
 import router from './Routes/Kpi.js';
-import productRouter from './Routes/product.js';
-import Product from './'
+import Product from './Models/Product.js';
+import routerProduct from './Routes/product.js';
+
 
 
 
@@ -28,7 +29,7 @@ app.use(cors());
 
 /* ROUTERS SERVER */
 app.use("/kpi" , router);
-app.use("product", productRouter)
+app.use("product", routerProduct)
 
 
 /* MOGOOSE SETUP */ 
@@ -42,7 +43,8 @@ mongoose
   .then(async () => {
    app.listen(PORT, () => console.log(`SERVER PORT ${PORT}`));
    await mongoose.connection.db.dropDatabase();
-   kPI.insertMany(kpis)
+   kPI.insertMany(kpis);
+   Product.insertMany(products)
  
    
   })
