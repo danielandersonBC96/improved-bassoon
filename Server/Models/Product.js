@@ -20,7 +20,7 @@ const ProductSchema= new Schema(
             get:(v) => v / 100
         },
          transaction  : [{
-            type: mongoose.Schema.Types.ObjectId,
+             type: mongoose.Schema.Types.ObjectId,
              ref: "Transaction ",
             
         }],
