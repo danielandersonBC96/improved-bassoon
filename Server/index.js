@@ -12,8 +12,6 @@ import Product from './Models/Product.js';
 import routerProduct from './Routes/product.js';
 
 
-
-
 /* SETTINGS  SERVER */
 
 dotenv.config()
