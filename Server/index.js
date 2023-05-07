@@ -27,7 +27,7 @@ app.use(cors());
 
 /* ROUTERS SERVER */
 app.use("/kpi" , router);
-app.use("product", routerProduct)
+app.use("/product", routerProduct)
 
 
 /* MOGOOSE SETUP */ 
