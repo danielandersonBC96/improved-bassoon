@@ -42,7 +42,7 @@ const monthPages =  new Schema(
             currancy:"USD",
             get:(v) => v / 100
         },
-          nonOperationExpenses :{
+          nonOperationalExpenses :{
             type: mongoose.Types.Currency,
             currancy:"USD",
             get:(v) => v / 100
