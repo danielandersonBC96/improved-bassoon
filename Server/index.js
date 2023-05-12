@@ -47,6 +47,7 @@ mongoose
    await mongoose.connection.db.dropDatabase();
    kPI.insertMany(kpis);
    Product.insertMany(products)
+   Transaction.insertMany(transactions);
  
    
   })
