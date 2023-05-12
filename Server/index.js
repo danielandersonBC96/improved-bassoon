@@ -6,10 +6,12 @@ import mongoose from 'mongoose';
 import morgan from "morgan";
 import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 import kPI, * as  KPI from './Models/KPI.js'
-import { kpis, products} from './Data/Data.js';
+import { kpis, products,transactions} from './Data/Data.js';
 import router from './Routes/Kpi.js';
 import Product from './Models/Product.js';
 import routerProduct from './Routes/product.js';
+import routerTransaction from './Routes/transaction.js'
+import Transaction from './models/Transaction.js'
 
 
 /* SETTINGS  SERVER */
@@ -26,8 +28,10 @@ app.use(cors());
 
 
 /* ROUTERS SERVER */
+
 app.use("/kpi" , router);
-app.use("/product", routerProduct)
+app.use("/product", routerProduct);
+app.use('/transaction', routerTransaction);
 
 
 /* MOGOOSE SETUP */ 
