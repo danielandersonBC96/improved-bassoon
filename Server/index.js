@@ -43,12 +43,12 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(async () => {
+
    app.listen(PORT, () => console.log(`SERVER PORT ${PORT}`));
    await mongoose.connection.db.dropDatabase();
    kPI.insertMany(kpis);
    Product.insertMany(products)
    Transaction.insertMany(transactions);
  
-   
   })
   .catch((error) =>  console.log(`${error} did not connect`));
