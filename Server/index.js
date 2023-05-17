@@ -11,7 +11,7 @@ import router from './Routes/Kpi.js';
 import Product from './Models/Product.js';
 import routerProduct from './Routes/product.js';
 import routerTransaction from './Routes/transaction.js'
-import Transaction from './models/Transaction.js'
+import Transaction from './Models/Transaction.js'
 
 
 /* SETTINGS  SERVER */
